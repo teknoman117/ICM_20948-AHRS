@@ -75,6 +75,12 @@ float p[] = {1, 0, 0};  //X marking on sensor board points toward yaw = 0
 #define PRINT_SPEED 1000 // ms between prints
 static unsigned long lastPrint = 0; // Keep track of print time
 
+int get_heading(float[3], float[3], float[3], float);
+void get_scaled_IMU(float[3], float[3]);
+void vector_cross(float[3], float[3], float[3]);
+float vector_dot(float[3], float[3]);
+void vector_normalize(float[3]);
+
 void setup()
 {
   Serial.begin(9600);

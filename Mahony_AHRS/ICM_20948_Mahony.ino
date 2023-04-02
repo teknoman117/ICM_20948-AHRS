@@ -85,6 +85,8 @@ unsigned long lastPrint = 0; // Keep track of print time
 static float q[4] = {1.0, 0.0, 0.0, 0.0};
 static float yaw, pitch, roll; //Euler angle output
 
+void get_scaled_IMU(float[3], float[3], float[3]);
+void MahonyQuaternionUpdate(float, float, float, float, float, float, float, float, float, float);
 
 void setup()
 {

@@ -31,6 +31,8 @@ ICM_20948_SPI myICM; // If using SPI create an ICM_20948_SPI object
 ICM_20948_I2C myICM; // Otherwise create an ICM_20948_I2C object
 #endif
 
+void printRawAGMT(ICM_20948_AGMT_t agmt);
+
 // gyro offset values for calibration
 long gyro[3] = {0};
 int offset_count = 500; //average this many values for gyro

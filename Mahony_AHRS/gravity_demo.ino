@@ -87,6 +87,8 @@ static float q[4] = {1.0, 0.0, 0.0, 0.0};
 static float gux, guy, guz; //estimated direction of gravity reference vector (calc'd in Mahony update)
 static float yaw, pitch, roll; //Euler angle output
 
+void get_scaled_IMU(float[3], float[3], float[3]);
+void MahonyQuaternionUpdate(float, float, float, float, float, float, float, float, float, float);
 
 void setup()
 {
