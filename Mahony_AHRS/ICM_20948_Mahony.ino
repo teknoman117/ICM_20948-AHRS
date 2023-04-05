@@ -44,30 +44,30 @@ ICM_20948_I2C imu; // create an ICM_20948_I2C object imu;
 
 //Gyro default scale 250 dps. Convert to radians/sec subtract offsets
 float Gscale = (M_PI / 180.0) * 0.00763; //250 dps scale sensitivity = 131 dps/LSB
-float G_offset[3] = {74.3, 153.8, -5.5};
+float G_offset[3] = {-79.6, 58.7, 25.3};
 
 //Accel scale: divide by 16604.0 to normalize
 float A_B[3]
-{   79.60,  -18.56,  383.31};
+{   239.38, -397.78,  215.20};
 
 float A_Ainv[3][3]
-{ {  1.00847,  0.00470, -0.00428},
-  {  0.00470,  1.00846, -0.00328},
-  { -0.00428, -0.00328,  0.99559}
+{ {  1.00765, -0.00581, -0.00555},
+  { -0.00581,  1.02597,  0.00604},
+  { -0.00555,  0.00604,  0.99908}
 };
 
 //Mag scale divide by 369.4 to normalize
 float M_B[3]
-{ -156.70,  -52.79, -141.07};
+{ -11.27, -118.05,  262.21};
 
 float M_Ainv[3][3]
-{ {  1.12823, -0.01142,  0.00980},
-  { -0.01142,  1.09539,  0.00927},
-  {  0.00980,  0.00927,  1.10625}
+{ {  1.40292,  0.00746,  0.01669},
+  {  0.00746,  1.38156,  0.04158},
+  {  0.01669,  0.04158,  1.38739}
 };
 
 // local magnetic declination in degrees
-float declination = -14.84;
+float declination = -13.3;
 
 // These are the free parameters in the Mahony filter and fusion scheme,
 // Kp for proportional feedback, Ki for integral
@@ -78,7 +78,7 @@ float declination = -14.84;
 unsigned long now = 0, last = 0; //micros() timers for AHRS loop
 float deltat = 0;  //loop time in seconds
 
-#define PRINT_SPEED 300 // ms between angle prints
+#define PRINT_SPEED 100 // ms between angle prints
 unsigned long lastPrint = 0; // Keep track of print time
 
 // Vector to hold quaternion

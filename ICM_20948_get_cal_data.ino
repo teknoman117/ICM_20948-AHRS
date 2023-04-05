@@ -36,7 +36,7 @@ void printRawAGMT(ICM_20948_AGMT_t agmt);
 // gyro offset values for calibration
 long gyro[3] = {0};
 int offset_count = 500; //average this many values for gyro
-int acc_mag_count = 300; //collect this many values for acc/mag calibration
+int acc_mag_count = 1000; //collect this many values for acc/mag calibration
 
 void setup()
 {
@@ -118,7 +118,7 @@ void setup()
       delay(100); //wait for data ready
     }
   }
-  SERIAL_PORT.print(F("Done collecting"));
+  SERIAL_PORT.println(F("Done collecting"));
 }
 
 void loop() {}
